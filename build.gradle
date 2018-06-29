@@ -45,3 +45,9 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+distTar.enabled = false
+distZip{
+    archiveName = "$baseName.$extension"
+}
+
