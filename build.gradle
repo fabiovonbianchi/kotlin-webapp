@@ -1,0 +1,47 @@
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    ext.tomcat_version = '8.5.23'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'com.fabidi'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "com.fabidi.webapp.Main"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'javax', name: 'javaee-api', version: '7.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.apache.tomcat:tomcat-catalina:$tomcat_version"
+    compile "org.apache.tomcat:tomcat-util:$tomcat_version"
+    compile "org.apache.tomcat.embed:tomcat-embed-core:$tomcat_version"
+    compile "org.apache.tomcat:tomcat-jasper:$tomcat_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
