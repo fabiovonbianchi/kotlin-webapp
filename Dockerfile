@@ -10,4 +10,4 @@ RUN unzip /tmp/$APP_NAME.zip
 
 WORKDIR /opt/$APP_NAME
 
-CMD ["sh","bin/$APP_NAME"]
+CMD ["sh","bin/kotlin-webapp"]
