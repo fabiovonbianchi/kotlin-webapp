@@ -2,11 +2,10 @@ FROM openjdk:8-jdk-alpine
 
 ENV APP_NAME=kotlin-webapp
 
-COPY build/distributions/$APP_NAME.zip /tmp/
+WORKDIR /opt
 
-WORKDIR /
+RUN unzip build/distributions/$APP_NAME.zip
 
-RUN unzip /tmp/$APP_NAME
+WORKDIR /opt/$APP_NAME
 
-#CMD["./kotlin-webapp/bin/app/kotlin-webapp"]
-
+CMD["sh","bin/$APP_NAME"]
